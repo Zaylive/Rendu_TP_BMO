@@ -1,0 +1,21 @@
+@startuml
+actor Bookmaker
+participant "Système de Paris en Ligne" as System
+
+group #b0e0e6 Gestion des événements sportifs - Nominal (creation d'un nouvel événement)
+Bookmaker -> System: Propose un nouvel événement sportif
+System -> Bookmaker: Formulaire de de création de l'événement
+Bookmaker -> System: Renvoie le formulaire
+System -> System: Vérifie la formulaire 
+System -> System: crée l'événement
+System --> Bookmaker: Confirmation de la création de l'événement
+end
+
+group #b0e0e6 Gestion des événements sportifs - Exceptionnel (événement déjà existant)
+Bookmaker -> System: Propose un nouvel événement sportif
+System -> Bookmaker: Formulaire de de création de l'événement
+Bookmaker -> System: Renvoie le formulaire
+System -> System: Vérifie la formulaire 
+System --> Bookmaker:  Erreur: Événement déjà existant
+end
+@enduml
